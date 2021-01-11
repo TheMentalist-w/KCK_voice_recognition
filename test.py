@@ -24,10 +24,9 @@ if __name__ == "__main__":
 
         if not actual:
             print("-")
-            total -= 1
-        elif actual != expected:
+        elif actual[0] != expected:
             print(f"{test_file}: expected {expected}; actual {actual}")
             fail_count += 1
 
     print(f"failed: {fail_count}; timed out {to_count} out of {total} finished")
-    print(f"accuracy: {1 - fail_count / total}")
+    print(f"accuracy: {1 - (fail_count + to_count) / total}")
